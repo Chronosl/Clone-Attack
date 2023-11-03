@@ -315,7 +315,16 @@ document.addEventListener('DOMContentLoaded', function () {
             enemies.push(newEnemy);
         }
     }
-
+function resetGame() {
+    gameRunning = false;
+    score = 0;
+    bullets = [];
+    enemies = [];
+    enemyBullets = [];
+    player.lives = 5;
+    player.x = canvas.width / 2 - 25;
+    player.y = canvas.height - 70;
+}
     function updateHighScore() {
         // Update the high score if the current score is higher
         if (score > highScore) {
@@ -332,9 +341,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("gameOver").style.display = "block";
     }
 
-    // Restart the game when the "Restart" button is clicked
-    document.getElementById("restartButton").addEventListener("click", function () {
-        document.getElementById("gameOver").style.display = "none"; // Hide the game over screen
-        startGame(); // Start a new game
+  // Restart the game when the "Restart" button is clicked
+document.getElementById("restartButton").addEventListener("click", function () {
+    document.getElementById("gameOver").style.display = "none"; // Hide the game over screen
+    resetGame(); // Reset the game state
+    startGame(); // Start a new game
     });
 });
