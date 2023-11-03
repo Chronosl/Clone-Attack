@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doom Clone</title>
+    <style>
+        /* You can paste the styles you have here. */
+        body {
+            background-color: #030;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #gameCanvas {
+            background-color: #555;
+            display: block; /* This prevents the canvas from having extra space at the bottom */
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="1080" height="800"></canvas>
+    <script src="game.js"></script>
+    <script>
+        // This will ensure the `game.js` script is loaded after the DOM has fully loaded
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            // You might want to call a function here to start your game or any initial setup
+        });
+    </script>
+</body>
+
+</html>
