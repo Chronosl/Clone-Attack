@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         y: canvas.height - 70,
         width: 50,
         height: 50,
-        speed: 3,
+        speed: 4,
         lives: 5,
     };
 
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to make enemies shoot
     function enemyShoot() {
         enemies.forEach((enemy) => {
-            if (Math.random() < 0.00010) { // Adjust this probability as needed
+            if (Math.random() < 0.001) { // Adjust this probability as needed
                 // Create a bullet for the enemy
                 enemyBullets.push({
                     x: enemy.x + enemy.width / 2 - 2.5,
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createWave() {
-        const numberOfEnemies = 6;
+        const numberOfEnemies = 8;
         for (let i = 0; i < numberOfEnemies; i++) {
             let randomX = Math.random() * (canvas.width - 50);
             let randomYOffset = Math.random() * 100; // This will give some vertical spacing variability
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 y: -30 - randomYOffset, // Apply the vertical offset here
                 width: 50,
                 height: 50,
-                speed: 0.5
+                speed: 0.8
             };
 
             enemies.push(newEnemy);
