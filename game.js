@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to make enemies shoot
     function enemyShoot() {
         enemies.forEach((enemy) => {
-            if (Math.random() < 0.02) { // Adjust this probability as needed
+            if (Math.random() < 0.008) { // Adjust this probability as needed
                 // Create a bullet for the enemy
                 enemyBullets.push({
                     x: enemy.x + enemy.width / 2 - 2.5,
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 y: -30 - randomYOffset, // Apply the vertical offset here
                 width: 50,
                 height: 50,
-                speed: 2
+                speed: 1
             };
 
             enemies.push(newEnemy);
