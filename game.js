@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let bullets = [];
     let enemies = [];
     let enemyBullets = []; // Array to store enemy bullets
+    let highScore = 0; 
 
     // Player object
     let player = {
@@ -188,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function gameOver() {
         gameRunning = false;
-        // Optionally play a game over sound, show a game over screen, etc.
-        displayMenu(); // This will take the player back to the main menu
+        updateHighScore(); // Update the high score
+        displayHighScore(); // Display high score and game over screen
     }
 
     // Function to display player lives
@@ -299,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createWave() {
-        const numberOfEnemies = 8;
+        const numberOfEnemies = Math.floor(Math.random() * (10 - 5 + 1)) + 5; // Generate a random number between 5 and 10
         for (let i = 0; i < numberOfEnemies; i++) {
             let randomX = Math.random() * (canvas.width - 50);
             let randomYOffset = Math.random() * 100; // This will give some vertical spacing variability
@@ -311,11 +312,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 height: 50,
                 speed: 0.8
             };
-
             enemies.push(newEnemy);
         }
     }
 
-    // Call the `displayMenu` initially
-    displayMenu();
+    function updateHighScore() {
+        // Update the high score if the current score is higher
+        if (score > highScore) {
+            highScore = score;
+        }
+    }
+
+    function displayHighScore() {
+        // Display the final score and high score
+        document.getElementById("finalScore").textContent = score;
+        document.getElementById("highScore").textContent = highScore;
+
+        // Show the game over screen
+        document.getElementById("gameOver").style.display = "block";
+    }
+
+    // Restart the game when the "Restart" button is clicked
+    document.getElementById("restartButton").addEventListener("click", function () {
+        document.getElementById("gameOver").style.display = "none"; // Hide the game over screen
+        startGame(); // Start a new game
+    });
 });

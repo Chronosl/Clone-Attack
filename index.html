@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doom Clone</title>
     <style>
-        /* You can paste the styles you have here. */
+        /* Your existing styles */
         body {
             background-color: #030;
             margin: 0;
@@ -18,14 +18,50 @@
 
         #gameCanvas {
             background-color: #555;
-            display: block; /* This prevents the canvas from having extra space at the bottom */
+            display: block;
             border: 1px solid #000;
+        }
+
+        /* New styles for the game over screen */
+        #gameOver {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #fff;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        #gameOver h1 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        #gameOver button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
     <canvas id="gameCanvas" width="1080" height="800"></canvas>
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <p>High Score: <span id="highScore">0</span></p>
+        <button id="restartButton">Restart</button>
+    </div>
     <script src="game.js"></script>
     <script>
         // This will ensure the `game.js` script is loaded after the DOM has fully loaded
