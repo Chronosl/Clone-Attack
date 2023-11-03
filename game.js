@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load assets
     enemyImage.src = 'enemySprite.png';
     playerImage.src = 'playerSprite.png';
-    backgroundImage.src = 'background.gif';
+    backgroundImage.src = 'background.jpeg';
 
     enemyImage.onload = () => assetLoaded();
     playerImage.onload = () => assetLoaded();
